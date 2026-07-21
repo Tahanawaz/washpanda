@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+
+* {
+  box-sizing: border-box;
+  
+
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+body {
+  overflow-x: hidden;
+}
+* {
+    font-family: "Outfit", sans-serif;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.swiper {
+  overflow: visible !important;
+  padding-bottom: 80px;
+}
+
+.swiper-pagination {
+  bottom: 10px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  width: 30px;
+  border-radius: 999px;
+  background: #4a9eff;
+}
+
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 39s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes galleryScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+
+.gallery-track {
+  animation: galleryScroll 32s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track { animation: none; }
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .booking-receipt-print,
+  .booking-receipt-print * {
+    visibility: visible;
+  }
+
+  .booking-receipt-print {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+  }
+}
